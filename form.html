@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Form</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+
+        label {
+            color: green;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid green;
+            border-radius: 5px;
+        }
+
+        /* Style submit and cancel buttons */
+        button[type="submit"],
+        button[type="button"] {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        /* Add styles for selected checkboxes */
+        input[type="checkbox"]:checked + label::before {
+            content: "\2713"; /* Checkmark symbol */
+            color: green;
+            font-weight: bold;
+        }
+        .form-label {
+            text-align: center;
+            background-color: green;
+            color: white;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+        }
+    </style>
+</head>
+<body>
+	 <div class="form-label">Form</div>
+    <form id="sampleForm" onsubmit="return validateForm()">
+    <form id="sampleForm" onsubmit="return validateForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="college">College:</label>
+        <select id="college" name="college">
+        	<option value="SELECT"></option>
+            <option value="College1">Indian Institute Of Craft And Design IICD, Jaipur</option>
+            <option value="college2">Banasthali vidhyapith</option>
+             <option value="college3">Khandelwal Vaish Girls Institute Of Technology (KVGIT), Jaipur</option>
+              <option value="college4">Sant Jayacharya Mahila Mahavidyalaya College Jaipur Rajasthan</option>
+               <option value="colleg5">Shree Swaroop Govind Pareek PG College, Jaipur</option>
+                <option value="branch1">OTHER</option>
+        </select>
+
+        <label for="branch">Branch:</label>
+        <select id="branch" name="branch">
+        	<option value="SELECT"></option>
+            <option value="branch1">MCA</option>
+            <option value="branch2">btech</option>
+             <option value="branch3">MSC</option>
+              <option value="branch4">bsc</option>
+               <option value="branch5">BA</option>
+                <option value="branch1">OTHER</option>
+        </select>
+
+        <label for="admissionType">Admission Type:</label>
+        <select id="admissionType" name="admissionType">
+           <option value="SELECT"></option>
+            <option value="regular">full TIME</option>
+            <option value="quota">Quota</option>
+        </select>
+
+        <label>Requirement:</label><br>
+        <input type="radio" id="requirement1" name="requirement" value="High">
+        <label for="requirement1">High</label>
+        <input type="radio" id="requirement2" name="requirement" value="Medium">
+        <label for="requirement2">Medium</label>
+        <input type="radio" id="requirement3" name="requirement" value="Low">
+        <label for="requirement3">Low</label><br><br>
+
+        <label for="startTime">Start Time:</label>
+        <input type="time" id="startTime" name="startTime">
+
+        <label for="endTime">End Time:</label>
+        <input type="time" id="endTime" name="endTime"><br><br>
+
+        <label for="sendTo">Send To:</label>
+        <select id="sendTo" name="sendTo" multiple>
+            <option value="user">komal1</option>
+            <option value="user1">kom123</option>
+            <option value="user2">kooo1</option>
+            <option value="user3">kooo13</option>
+            <option value="user4">kooo11234</option>
+        </select>
+
+        <label>Send Via:</label><br>
+        <input type="checkbox" id="sendEmail" name="sendVia" value="Email">
+        <label for="sendEmail">Email</label>
+        <input type="checkbox" id="sendSMS" name="sendVia" value="SMS">
+        <label for="sendSMS">SMS</label>
+        <input type="checkbox" id="sendWhatsApp" name="sendVia" value="WhatsApp">
+        <label for="sendWhatsApp">WhatsApp</label>
+        <input type="checkbox" id="sendCall" name="sendVia" value="Call">
+        <label for="sendCall">Call</label><br><br>
+
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50"></textarea>
+
+        <button type="submit">Add</button>
+        <button type="button" onclick="cancelForm()">Cancel</button>
+    </form>
+
+    <script>
+        function cancelForm() {
+            document.getElementById("sampleForm").reset();
+        }
+
+        function validateForm() {
+            // Basic validation example: Check if the 'Name' field is not empty
+            var nameField = document.getElementById("name");
+            if (nameField.value.trim() === "") {
+                alert("Name field cannot be empty.");
+                nameField.focus();
+                return false;
+            }
+
+            // Add more validation checks for other fields as needed
+
+            return true;
+        }
+    </script>
+</body>
+</html>
